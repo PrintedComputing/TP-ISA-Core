@@ -42,6 +42,7 @@ module alu
             end
             types::op_and: _dout = _arg1 & _arg2;
             types::op_or: _dout = _arg1 | _arg2;
+            types::op_xor: _dout = _arg1 ^ _arg2;
             types::op_not: _dout = ~_arg2;
             types::op_rl: _dout = {arg1[width-1], arg1[width-2:0],
                                                     bmask.C ? f.C : 1'b0};
