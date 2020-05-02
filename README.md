@@ -53,8 +53,8 @@ Mem-Mem:
     RRA     r(a1)           ; M[ea1] <- {M[ea1][7], M[ea1][7:1]}
 
 STORE Mem:
-    STORE a1, imm1 ; M[a1] <- imm1
-    SETBAR m1      ; BAR <- M[a1]
+    STORE a1, imm1 ; M[ea1] <- imm1
+    SETBAR m1      ; BAR <- M[ea1]
 
 Branching:
     BR bflags, a1  ; PC <- |(bflags & Flags) ? a1 : PC + 1
