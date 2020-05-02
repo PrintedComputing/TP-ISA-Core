@@ -57,8 +57,8 @@ STORE Mem:
     SETBAR m1      ; BAR <- M[ea2]
 
 Branching:
-    BR bflags, a1  ; PC <- |(bflags & Flags) ? a1 : PC + 1
-    BRN bflags, a1 ; PC <- |(bflags & Not(Flags)) ? a1 : PC + 1
+    BR bflags, a1  ; PC <- |(bflags & Flags) ? ea1 : PC + 1
+    BRN bflags, a1 ; PC <- |(bflags & Not(Flags)) ? ea1 : PC + 1
 ```
 
 Effective addresses (`ea1`, `ea2`) are calculated as
