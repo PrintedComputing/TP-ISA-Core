@@ -10,15 +10,15 @@ module Top
 )
 (
     input clk, reset,
-    input types::instr_t instr,
+    input var types::instr_t instr,
     output logic [pc_width-1:0] pc,
-    input  logic [width-1:0] rdata [1:2],
+    input  var logic [width-1:0] rdata [1:2],
     output logic [width-1:0] wdata,
     output logic [addr_width-1:0] addr [1:2],
     output logic wen
 );
 
-    assign wen = instr.mm.opcode[3];
+    assign wen = instr.mm.bmask.W;
     datapath #(width, nptrs, pc_width, addr_width) datapath(.*);
 
 endmodule : Top

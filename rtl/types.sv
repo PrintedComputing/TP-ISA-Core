@@ -62,9 +62,8 @@ package types;
             opcode_t opcode;
             ctl_t bmask;
             addr_t addr1;
-            logic [7:5] rsvrd;
-            logic [4:4] negate; // high for brn, low for br
-            flags_t bflags; 	// Used to indicate which flags to consider
+            logic [7:4] rsvrd;
+            flags_t bflags;     // Used to indicate which flags to consider
         } branch;
     } instr_t;
     localparam instr_t nop = 24'b0;

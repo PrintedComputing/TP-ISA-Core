@@ -7,10 +7,10 @@ module alu
 )
 (
     input types::opcode_t opcode,
-    input types::ctl_t bmask,
+    input var types::ctl_t bmask,
     input logic [width-1:0] arg1,
     input logic [width-1:0] arg2,
-    input types::flags_t f,
+    input var types::flags_t f,
     output logic [width-1:0] dout,
     output types::flags_t fout
 );
@@ -37,7 +37,7 @@ module alu
             types::op_add: begin
                 unique casex (bmask)
                     4'b1x0x: _dout = _arg1 + _arg2 + (maskC_ext & fc);
-                    4'b1x1x: _dout = _arg1 + (~_arg2) + (maskC_ext & fc_inv);
+                    4'b1x1x: _dout = _arg1 + (~_arg2) + (1'b1 ^ (maskC_ext & fc_inv));
                 endcase
             end
             types::op_and: _dout = _arg1 & _arg2;
